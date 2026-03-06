@@ -2,6 +2,7 @@ export default function WorkoutList() {
   const mock = [
     { id: "a1", title: "Run", load: 0, reps: 0 },
     { id: "b2", title: "Squat", load: 40, reps: 8 },
+    { id: "c3", title: "Jump", load: 0, reps: 50 },
   ];
   return (
     <div>
