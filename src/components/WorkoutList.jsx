@@ -1,28 +1,23 @@
-export default function WorkoutList() {
-  const mock = [
-    { id: "a1", title: "Run", load: 0, reps: 0 },
-    { id: "b2", title: "Squat", load: 40, reps: 8 },
-    { id: "c3", title: "Jump", load: 0, reps: 50 },
-  ];
+export default function WorkoutList({ workouts = [] }) {
+  if (workouts.length === 0) return <p>No workouts yet.</p>;
   return (
     <div>
-      <h3>Workout List</h3>
-      <ul>
-        {mock.map((workout) => (
-          <li
-            key={workout.id}
-            style={{
-              border: "1px solid #ccc",
-              margin: "0.5rem 0",
-              padding: "0.5rem",
-            }}
-          >
-            <strong>{workout.title}</strong>
-            <div>Load: {workout.load} kg</div>
-            <div>Reps: {workout.reps}</div>
-          </li>
-        ))}
-      </ul>
+      <h3>Logged Workouts</h3>
+      {workouts.map((workout) => (
+        <div
+          key={workout.id}
+          style={{
+            border: "1px solid #7a7777",
+            margin: "0.5rem 0",
+            padding: "0.5rem",
+            background: "#ddcece",
+          }}
+        >
+          <strong>{workout.title}</strong>
+          <div>Load: {workout.load} lbs</div>
+          <div>Reps: {workout.reps}</div>
+        </div>
+      ))}
     </div>
   );
 }
