@@ -18,12 +18,15 @@ export default function Workouts() {
     const newItem = { id: Date.now().toString(), ...workout };
     setWorkouts((prev) => [...prev, newItem]);
   };
+  const deleteWorkout = (id) => {
+    setWorkouts((prev) => prev.filter((workout) => workout.id !== id));
+  };
 
   return (
     <section>
       <h2>Workouts</h2>
       <WorkoutForm onAdd={addWorkout} />
-      <WorkoutList workouts={workouts} />
+      <WorkoutList workouts={workouts} onDelete={deleteWorkout} />
     </section>
   );
 }

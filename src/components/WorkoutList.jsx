@@ -1,4 +1,4 @@
-export default function WorkoutList({ workouts = [] }) {
+export default function WorkoutList({ workouts = [], onDelete }) {
   if (workouts.length === 0) return <p>No workouts yet.</p>;
   return (
     <div>
@@ -16,6 +16,7 @@ export default function WorkoutList({ workouts = [] }) {
           <strong>{workout.title}</strong>
           <div>Load: {workout.load} lbs</div>
           <div>Reps: {workout.reps}</div>
+          <button onClick={() => onDelete(workout.id)}>Delete</button>
         </div>
       ))}
     </div>
