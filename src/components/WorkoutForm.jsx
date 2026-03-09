@@ -27,7 +27,7 @@ export default function WorkoutForm({ onAdd }) {
       <label>Title</label>
       <input value={title} onChange={(event) => setTitle(event.target.value)} />
 
-      <label>Load (kg)</label>
+      <label>Load (lbs)</label>
       <input
         type="number"
         value={load}
