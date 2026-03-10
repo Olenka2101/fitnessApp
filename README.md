@@ -1,4 +1,21 @@
+Daily Fitness App
+
+# Daily Fitness: Workouts logs and Journaling.
+
+## Description
+
+A small React App to log your workouts and daily journaling. Data is stored in locally.
+
+##Technologies used
+
 # React + Vite
+
+# react-router -dom
+
+## How to install and run
+
+npm install
+npm run dev
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
