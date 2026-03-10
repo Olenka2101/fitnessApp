@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Workouts from "./pages/Workouts";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Journal from "./pages/Journal";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route index element={<Workouts />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="journal" element={<Journal />} />
       </Route>
     </Routes>
   );
