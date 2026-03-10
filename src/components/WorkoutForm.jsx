@@ -21,7 +21,16 @@ export default function WorkoutForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        maxWidth: "400px",
+        margin: "0 auto",
+      }}
+    >
       <h3>Add Workout</h3>
 
       <label>Title</label>

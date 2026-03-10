@@ -1,26 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import WorkoutForm from "../components/WorkoutForm";
 import WorkoutList from "../components/WorkoutList";
+import { loadWorkouts, saveWorkouts } from "../utils/storage";
 
 export default function Workouts() {
-  const [workouts, setWorkouts] = useState([]);
+  const [workouts, setWorkouts] = useState(() => loadWorkouts("workouts", []));
 
   useEffect(() => {
-    const storedWorkouts = localStorage.getItem("workouts");
-    if (storedWorkouts) setWorkouts(JSON.parse(storedWorkouts));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("workouts", JSON.stringify(workouts));
+    saveWorkouts("workouts", workouts);
   }, [workouts]);
 
-  const addWorkout = (workout) => {
+  const addWorkout = useCallback((workout) => {
     const newItem = { id: Date.now().toString(), ...workout };
     setWorkouts((prev) => [...prev, newItem]);
-  };
-  const deleteWorkout = (id) => {
+  }, []);
+  const deleteWorkout = useCallback((id) => {
     setWorkouts((prev) => prev.filter((workout) => workout.id !== id));
-  };
+  }, []);
 
   return (
     <section>
