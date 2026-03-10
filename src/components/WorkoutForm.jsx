@@ -1,19 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function WorkoutForm({ onAdd }) {
+export default function WorkoutForm({ onAdd, initialData = null }) {
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
   const [reps, setReps] = useState("");
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (initialData) {
+      setTitle(initialData.title ?? "");
+      setLoad(initialData.load ?? "");
+      setReps(initialData.reps ?? "");
+    }
+  }, [initialData]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (title.trim().length < 2) {
-      setError("Title needs to be at least 2 characters.");
+      setError("Workout type must be at least 2 characters.");
+      return;
+    }
+    if (!load || Number(load) < 0 || !reps || Number(reps) < 1) {
+      setError("Load must be >= 0 and reps must be >= 1.");
       return;
     }
 
-    onAdd({ title, load: Number(load), reps: Number(reps) });
+    onAdd({ title: title.trim(), load: Number(load), reps: Number(reps) });
+
     setTitle("");
     setLoad("");
     setReps("");
@@ -23,36 +37,49 @@ export default function WorkoutForm({ onAdd }) {
   return (
     <form
       onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        maxWidth: "400px",
-        margin: "0 auto",
-      }}
+      aria-label="Add workout form"
+      style={formStyle}
     >
       <h3>Add Workout</h3>
 
-      <label>Workout type</label>
-      <input value={title} onChange={(event) => setTitle(event.target.value)} />
-
-      <label>Weight (lbs)</label>
+      <label htmlFor="title">Workout type</label>
       <input
-        type="number"
-        value={load}
-        onChange={(event) => setLoad(event.target.value)}
+        id="title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
 
-      <label>Reps</label>
+      <label htmlFor="load">Weight (lbs)</label>
       <input
+        id="load"
+        type="number"
+        value={load}
+        onChange={(e) => setLoad(e.target.value)}
+      />
+
+      <label htmlFor="reps">Reps</label>
+      <input
+        id="reps"
         type="number"
         value={reps}
-        onChange={(event) => setReps(event.target.value)}
+        onChange={(e) => setReps(e.target.value)}
       />
 
       <button type="submit">Add</button>
 
-      {error && <div style={{ color: "red" }}>{error}</div>}
+      {error && (
+        <div role="alert" style={{ color: "red" }}>
+          {error}
+        </div>
+      )}
     </form>
   );
 }
+
+const formStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  maxWidth: 400,
+  gap: 8,
+};
