@@ -33,10 +33,10 @@ export default function WorkoutForm({ onAdd }) {
     >
       <h3>Add Workout</h3>
 
-      <label>Title</label>
+      <label>Workout type</label>
       <input value={title} onChange={(event) => setTitle(event.target.value)} />
 
-      <label>Load (lbs)</label>
+      <label>Weight (lbs)</label>
       <input
         type="number"
         value={load}
