@@ -75,7 +75,7 @@ export default function Journal() {
 
   return (
     <section style={{ textAlign: "center" }}>
-      <h2>Journal</h2>
+      <h2 style={{ fontWeight: 400, fontSize: "2rem" }}>My Daily Journal</h2>
       <JournalForm onAdd={addEntry} />
       {entries.length === 0 ? (
         <p>No journal entries yet.</p>
@@ -118,25 +118,40 @@ export default function Journal() {
                       width: "100%",
                       padding: "8px",
                       boxSizing: "border-box",
+                      textAlign: "center",
                     }}
                   />
-                  <div style={{ marginTop: "0.5em" }}>
+                  <div style={{ marginTop: "0.5em", textAlign: "center" }}>
                     <label>
                       Mood:{" "}
                       <select
                         value={editMood}
                         onChange={(event) => setEditMood(event.target.value)}
+                        style={{ textAlign: "center" }}
                       >
-                        <option value="happy">Happy</option>
-                        <option value="neutral">Neutral</option>
-                        <option value="sad">Sad</option>
+                        <option value="happy" style={{ textAlign: "center" }}>
+                          I am Happy
+                        </option>
+                        <option value="neutral" style={{ textAlign: "center" }}>
+                          I am OK
+                        </option>
+                        <option value="sad" style={{ textAlign: "center" }}>
+                          I am Sad
+                        </option>
                       </select>
                     </label>
                   </div>
-                  <div style={{ marginTop: "0.75em" }}>
+                  <div
+                    style={{
+                      marginTop: "0.75em",
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "0.5em",
+                    }}
+                  >
                     <button
                       onClick={() => saveEdit(e.id)}
-                      style={{ marginRight: "0.5em", ...buttonStyle }}
+                      style={{ ...buttonStyle }}
                     >
                       Save
                     </button>
@@ -148,7 +163,8 @@ export default function Journal() {
               ) : (
                 <div>
                   <div style={{ marginBottom: "0.5em" }}>
-                    {new Date(e.createdAt).toLocaleString()} — {e.mood}
+                    {new Date(e.createdAt).toLocaleString()} —{" "}
+                    {e.mood === "neutral" ? "I am ok" : e.mood}
                   </div>
                   <div style={{ marginBottom: "0.75em" }}>{e.text}</div>
                   <div

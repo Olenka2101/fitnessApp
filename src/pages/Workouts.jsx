@@ -24,7 +24,7 @@ export default function Workouts() {
 
   return (
     <section>
-      <h2>Workouts</h2>
+      <h2 style={{ fontWeight: 500, fontSize: "2.25rem" }}>Workouts</h2>
       <WorkoutForm onAdd={addWorkout} />
       <WorkoutList workouts={workouts} onDelete={deleteWorkout} />
     </section>

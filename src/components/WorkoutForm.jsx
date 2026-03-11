@@ -37,7 +37,7 @@ export default function WorkoutForm({ onAdd, initialData = null }) {
       !sets ||
       Number(sets) < 1
     ) {
-      setError("Load must be >= 0 and reps/sets must be >= 1.");
+      setError("Load must be >= 0 and reps/sets must be >= 1");
       return;
     }
 
