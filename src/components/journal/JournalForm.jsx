@@ -33,7 +33,6 @@ export default function JournalForm({ onAdd }) {
         maxWidth: 400,
       }}
     >
-      <h3 style={{ textAlign: "center" }}>My Daily Journal</h3>
       <label
         htmlFor="journal-text"
         style={{ display: "block", marginBottom: "0.625em" }}
@@ -78,9 +77,9 @@ export default function JournalForm({ onAdd }) {
           textAlign: "center",
         }}
       >
-        <option value="happy">Happy</option>
-        <option value="neutral">Neutral</option>
-        <option value="sad">Sad</option>
+        <option value="happy">I am Happy</option>
+        <option value="neutral">I am OK</option>
+        <option value="sad">I am Sad</option>
       </select>
       <button
         type="submit"

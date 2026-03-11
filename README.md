@@ -5,6 +5,9 @@ Daily Fitness App
 ## Description
 
 A small React App to log your workouts and daily journaling. Data is stored in locally.
+Daily Fitness is a simple workout tracking and Journaling app. It helps users log their exercises, weights, repetitions and sets and journal their progress or just their thoughts. The goal of this app is to make it easy to keep track of workouts and stay consistent with fitness goals.
+
+All data is saved in the browser using local storage, so all workouts and notes stay available, even after you refresh the page.
 
 ##Technologies used
 
