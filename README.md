@@ -9,16 +9,16 @@ Daily Fitness is a simple workout tracking and Journaling app. It helps users lo
 
 All data is saved in the browser using local storage, so all workouts and notes stay available, even after you refresh the page.
 
-##Technologies used
+# Technologies used
 
 # React + Vite
 
 # react-router -dom
 
-## How to install and run
+# How to install and run
 
-# npm install
-# npm run dev
+#npm install
+#npm run dev
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
