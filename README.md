@@ -1,6 +1,7 @@
 # My Project Name Daily Fitness App
 
 Daily Fitness: Workouts logs and Journaling.
+You can find this app here https://fitness-app-ten-sooty.vercel.app/
 
 #  Usage / Description
 
